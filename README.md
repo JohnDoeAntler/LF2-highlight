@@ -1,4 +1,4 @@
-# lf2-highlight README
+# LF2-highlight README
 
 Colorizing syntaxes of LF2 data file
 
