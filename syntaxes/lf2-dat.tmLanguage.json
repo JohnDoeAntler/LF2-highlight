@@ -1,0 +1,444 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "LF2 syntax highlighting",
+	"patterns": [{
+		"include": "#bmp"
+	}, {
+		"include": "#frame"
+	}, {
+		"include": "#w_s_l"
+	}, {
+		"include": "#stage"
+	}, {
+		"include": "#bg"
+	}],
+	"repository": {
+		"bmp": {
+			"begin": "<(bmp_begin)>",
+			"end": "<(bmp_end)>",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.tag.begin.lf2-dat"
+				},
+				"1": {
+					"name": "entity.name.tag.lf2-dat"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.tag.begin.lf2-dat"
+				},
+				"1": {
+					"name": "entity.name.tag.lf2-dat"
+				}
+			},
+			"patterns": [{
+					"match": "([^\\s:]+)[:\\s]+?([\\d.-]+)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				},
+				{
+					"match": "([^\\s:\\(\\)]+)((\\()(\\d+?)(-)(\\d+?)(\\)))?([:\\s]+?)([^\\s]+)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"4": {
+							"name": "constant.numeric.lf2-dat"
+						},
+						"6": {
+							"name": "constant.numeric.lf2-dat"
+						},
+						"9": {
+							"name": "string.unquoted.lf2-dat"
+						}
+					}
+				}
+			]
+		},
+		"frame": {
+			"begin": "<(frame)>\\s*(\\d+)\\s*([^\\s]+)",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.tag.begin.lf2-dat"
+				},
+				"1": {
+					"name": "entity.name.tag.lf2-dat"
+				},
+				"2": {
+					"name": "constant.numeric.lf2-dat"
+				},
+				"3": {
+					"name": "string.unquoted.lf2-dat"
+				}
+			},
+			"end": "<(frame_end)>",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.tag.begin.lf2-dat"
+				},
+				"1": {
+					"name": "entity.name.tag.lf2-dat"
+				}
+			},
+			"patterns": [{
+				"begin": "(bpoint)\\s*:",
+				"end": "(bpoint_end)\\s*:",
+				"beginCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"endCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"patterns": [{
+					"match": "(x|y):\\s*(\\d*)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				}]
+			}, {
+				"begin": "(wpoint)\\s*:",
+				"end": "(wpoint_end)\\s*:",
+				"beginCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"endCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"patterns": [{
+					"match": "(kind|x|y|weaponact|attacking|cover|dvx|dvy|dvz):\\s*(\\d*)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				}]
+			}, {
+				"begin": "(bdy)\\s*:",
+				"end": "(bdy_end)\\s*:",
+				"beginCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"endCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"patterns": [{
+					"match": "(kind|x|y|w|h):\\s*(\\d*)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				}]
+			}, {
+				"begin": "(opoint)\\s*:",
+				"end": "(opoint_end)\\s*:",
+				"beginCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"endCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"patterns": [{
+					"match": "(kind|x|y|action|dvx|dvy|oid|facing):\\s*(\\d*)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				}]
+			}, {
+				"begin": "(cpoint)\\s*:",
+				"end": "(cpoint_end)\\s*:",
+				"beginCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"endCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"patterns": [{
+					"match": "(kind|x|y|injury|vaction|aaction|jaction|taction|throwvx|throwvy|throwvz|hurtable|throwinjury|decrease|dircontrol|cover|fronthurtact|backhurtact):\\s*([\\d.-]*)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				}]
+			}, {
+				"begin": "(itr)\\s*:",
+				"end": "(itr_end)\\s*:",
+				"beginCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"endCaptures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					}
+				},
+				"patterns": [{
+					"match": "(kind|x|y|w|h|dvx|dvy|arest|vrest|fall|bdefend|injury|zwidth|effect|catchingact|caughtact):\\s*([\\d.-]*)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				}]
+			}, {
+				"match": "(pic|state|wait|next|dvx|dvy|dvz|centerx|centery|hit_a|hit_d|hit_j|hit_Fa|hit_Fj|hit_Ua|hit_Uj|hit_Da|hit_Dj|hit_ja|mp)\\s*:\\s*([\\d.-]+)",
+				"captures": {
+					"1": {
+						"name": "support.type.property-name.lf2-dat"
+					},
+					"2": {
+						"name": "constant.numeric.lf2-dat"
+					}
+				}
+			}, {
+				"match": "(sound)\\s*:\\s*([^\\s]+)",
+				"captures": {
+					"1": {
+						"name": "support.type.property-name"
+					},
+					"2": {
+						"name": "string.unquoted.lf2-dat"
+					}
+				}
+			}]
+		},
+		"w_s_l": {
+			"begin": "<(w_s_l)>",
+			"end": "<(w_s_l_e)>",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.tag.begin.lf2-dat"
+				},
+				"1": {
+					"name": "entity.name.tag.lf2-dat"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.tag.begin.lf2-dat"
+				},
+				"1": {
+					"name": "entity.name.tag.lf2-dat"
+				}
+			},
+			"patterns": [{
+				"match": "(entry|kind|x|y|w|h|dvx|dvy|arest|vrest|fall|bdefend|injury|zwidth|effect|catchingact|caughtact)"
+			}]
+		},
+		"stage": {
+			"begin": "<(stage)>",
+			"end": "<(stage_end)>",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.tag.begin.lf2-dat"
+				},
+				"1": {
+					"name": "entity.name.tag.lf2-dat"
+				}
+			},
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.tag.begin.lf2-dat"
+				},
+				"1": {
+					"name": "entity.name.tag.lf2-dat"
+				}
+			},
+			"patterns": [{
+					"name": "comment.line.number-sign.lf2-dat",
+					"match": "#.*$"
+				},
+				{
+					"begin": "<(phase)>",
+					"end": "<(phase_end)>",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.tag.begin.lf2-dat"
+						},
+						"1": {
+							"name": "entity.name.tag.lf2-dat"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.tag.begin.lf2-dat"
+						},
+						"1": {
+							"name": "entity.name.tag.lf2-dat"
+						}
+					},
+					"patterns": [{
+							"name": "comment.line.number-sign.lf2-dat",
+							"match": "#.*$"
+						},
+						{
+							"match": "(music)\\s*:\\s*([^\\s]+)",
+							"captures": {
+								"1": {
+									"name": "support.type.property-name"
+								},
+								"2": {
+									"name": "string.unquoted"
+								}
+							}
+						},
+						{
+							"match": "(bound|id|hp|x|y|times|ratio|join|join_reserve|act|reserve)\\s*:\\s([\\d.-]+)*",
+							"captures": {
+								"1": {
+									"name": "support.type.property-name.lf2-dat"
+								},
+								"2": {
+									"name": "constant.numeric.lf2-dat"
+								}
+							}
+						},
+						{
+							"match": "<(boss|soldier)>",
+							"captures": {
+								"0": {
+									"name": "punctuation.definition.tag.begin.lf2-dat"
+								},
+								"1": {
+									"name": "keyword.other.lf2-dat"
+								}
+							}
+						}
+					]
+				},
+				{
+					"match": "(id)\\s*:\\s*(\\d+)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				}
+			]
+		},
+		"bg": {
+			"patterns": [{
+					"match": "(name|shadow)\\s*:\\s*([^\\s]+)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "string.unquoted.lf2-dat"
+						}
+					}
+				},
+				{
+					"begin": "layer",
+					"end": "layer_end",
+					"beginCaptures": {
+						"0": {
+							"name": "support.type.property-name.lf2-dat"
+						}
+					},
+					"endCaptures": {
+						"0": {
+							"name": "support.type.property-name.lf2-dat"
+						}
+					},
+					"patterns": [{
+							"match": "(transparency|width|height|x|y|loop)\\s*:\\s*([\\d.-]+)",
+							"captures": {
+								"1": {
+									"name": "support.type.property-name.lf2-dat"
+								},
+								"2": {
+									"name": "constant.numeric.lf2-dat"
+								}
+							}
+						},
+						{
+							"name": "string.unquoted.lf2-dat",
+							"match": "[^\\s]+"
+						}
+					]
+				},
+				{
+					"match": "(width)\\s*:\\s*(\\d+)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				},
+				{
+					"match": "(zboundary|shadowsize)\\s*:\\s*(\\d+)\\s+(\\d+)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.lf2-dat"
+						},
+						"2": {
+							"name": "constant.numeric.lf2-dat"
+						},
+						"3": {
+							"name": "constant.numeric.lf2-dat"
+						}
+					}
+				}
+			]
+		}
+	},
+	"scopeName": "source.dat"
+}
