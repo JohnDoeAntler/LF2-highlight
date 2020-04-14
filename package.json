@@ -2,7 +2,7 @@
     "name": "lf2-highlight",
     "displayName": "LF2 syntax highlight",
     "description": "Colorizing syntaxes of LF2 data file.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "JohnDoeAntler",
     "icon": "icon.jpg",
     "repository": {
@@ -15,16 +15,24 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "lf2-dat",
-            "aliases": ["LF2 Data File"],
-            "extensions": [".dat"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "lf2-dat",
-            "scopeName": "source.dat",
-            "path": "./syntaxes/lf2-dat.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "lf2-dat",
+                "aliases": [
+                    "LF2 Data File"
+                ],
+                "extensions": [
+                    ".dat"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "lf2-dat",
+                "scopeName": "source.dat",
+                "path": "./syntaxes/lf2-dat.tmLanguage.json"
+            }
+        ]
     }
 }
