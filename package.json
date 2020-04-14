@@ -4,6 +4,7 @@
     "description": "Colorizing syntaxes of LF2 data file.",
     "version": "0.0.1",
     "publisher": "JohnDoeAntler",
+    "icon": "icon.jpg",
     "repository": {
         "url": "https://github.com/JohnDoeAntler/LF2-highlight.git"
     },
